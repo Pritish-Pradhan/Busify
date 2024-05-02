@@ -1,0 +1,77 @@
+body {
+    text-align: center;
+    background-image: url("./Resources/landing_logo.jpg"); /* Add your background image URL here */
+    background-size: cover; /* Make sure the background image covers the entire viewport */
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Center items vertically */
+}
+
+#container {
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Center items vertically */
+}
+
+.student,
+.driver {
+    margin: 0 20px; /* Added margin for spacing */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Add transition for smooth color change and box-shadow effect */
+    border-radius: 10px; /* Add border-radius for rounded corners */
+    overflow: hidden; /* Ensure box shadow doesn't overflow */
+    animation: pulse 2s infinite alternate; /* Add animation */
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.1);
+    }
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+img {
+    height: 200px;
+    width: 200px;
+    transition: transform 0.3s ease; /* Add transition for smooth hover effect */
+}
+
+.student:hover,
+.driver:hover {
+    background-color: rgba(144, 238, 144, 0.3); /* Change background color on hover */
+    backdrop-filter: blur(10px); /* Apply glass effect */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Add box shadow on hover */
+    animation: none; /* Disable animation on hover */
+}
+
+.student:hover img,
+.driver:hover img {
+    transform: scale(1.1); /* Scale up the image on hover */
+}
+
+figcaption {
+    transition: color 0.3s ease; /* Add transition for smooth color change */
+}
+
+.student:hover figcaption,
+.driver:hover figcaption {
+    color: red; /* Change text color on hover */
+}
+
+.student {
+    background-color: rgba(220, 224, 183, 0.967);
+    text-align: center;
+    
+}
+
+.driver {
+    background-color: rgba(220, 224, 183, 0.967);
+}
