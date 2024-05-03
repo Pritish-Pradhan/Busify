@@ -22,6 +22,7 @@
         scroll-behavior: smooth;
     }
     body, html,main {
+      width: 100vw;
         height: 100%;
       position: relative;
     }
@@ -109,7 +110,7 @@
                 </ul>
               </li>
               <li class="nav-item">
-                <a class="nav-link" target="_blank" href="./login1.html">Log in</a>
+                <a class="nav-link" target="_blank" href="./Login.html">Log in</a>
               </li>
             </ul>
             <form role="search">
@@ -223,7 +224,7 @@
         <h1 class="display-4 fw-normal text-body-emphasis">Transport Fees</h1>
       </div>
     <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
-        <div class="col">
+        <div class="col" id = "bhu">
           <div class="card mb-4 rounded-3 shadow-sm">
             <div class="card-header py-3">
               <h4 class="my-0 fw-normal">Bhubaneswar</h4>
@@ -236,11 +237,11 @@
                 <li>Morning and Evening</li>
                 <li>A helper will always be present</li>
               </ul>
-              <a href="./payment.html" target="_blank"><button type="button" class="w-100 btn btn-lg btn-outline-primary">Pay Now</button></a>
+              <a href="./payment.html" target="_blank"><button type="button" class="w-100 btn btn-lg btn-outline-primary b-pay">Pay Now</button></a>
             </div>
           </div>
         </div>
-        <div class="col">
+        <div class="col" id = "cut">
           <div class="card mb-4 rounded-3 shadow-sm">
             <div class="card-header py-3">
               <h4 class="my-0 fw-normal">Cuttack</h4>
@@ -257,7 +258,7 @@
             </div>
           </div>
         </div>
-        <div class="col">
+        <div class="col" id="xyz">
           <div class="card mb-4 rounded-3 shadow-sm">
             <div class="card-header py-3">
               <h4 class="my-0 fw-normal">XYZ</h4>
@@ -304,6 +305,7 @@
   
   <script src="/docs/5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>    
   <script src="./index.js"></script>
+  <script src="./payment.js"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
