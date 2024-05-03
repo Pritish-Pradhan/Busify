@@ -1,27 +1,32 @@
 body {
     text-align: center;
-    background-image: url("./Resources/landing_logo.jpg"); /* Add your background image URL here */
-    background-size: cover; /* Make sure the background image covers the entire viewport */
-    width: 100vw;
-    height: 100vh;
+    background-image: url("./Resources/landing_logo.jpg");
+    background-size: cover;
+    min-height: 100vh; /* Set minimum height to cover entire viewport */
     display: flex;
     justify-content: center;
-    align-items: center; /* Center items vertically */
+    align-items: center;
+    margin: 0; /* Remove default body margin */
 }
 
 #container {
     display: flex;
     justify-content: center;
-    align-items: center; /* Center items vertically */
+    align-items: center;
+    flex-wrap: wrap; /* Allow items to wrap to new line on smaller screens */
+    max-width: 800px; /* Limit maximum width of container */
+    margin: 0 auto; /* Center container horizontally */
 }
 
 .student,
 .driver {
-    margin: 0 20px; /* Added margin for spacing */
-    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Add transition for smooth color change and box-shadow effect */
-    border-radius: 10px; /* Add border-radius for rounded corners */
-    overflow: hidden; /* Ensure box shadow doesn't overflow */
-    animation: pulse 2s infinite alternate; /* Add animation */
+    margin: 20px; /* Adjust margin for spacing */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 10px;
+    overflow: hidden;
+    animation: pulse 2s infinite alternate;
+    flex: 1 1 200px; /* Set flex-grow, flex-shrink, and flex-basis */
+    max-width: 300px; /* Limit maximum width of items */
 }
 
 @keyframes pulse {
@@ -39,39 +44,35 @@ a {
 }
 
 img {
-    height: 200px;
-    width: 200px;
-    transition: transform 0.3s ease; /* Add transition for smooth hover effect */
+    max-width: 100%; /* Ensure image does not exceed container width */
+    height: auto; /* Maintain aspect ratio */
+    transition: transform 0.3s ease;
 }
 
 .student:hover,
 .driver:hover {
-    background-color: rgba(144, 238, 144, 0.3); /* Change background color on hover */
-    backdrop-filter: blur(10px); /* Apply glass effect */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Add box shadow on hover */
-    animation: none; /* Disable animation on hover */
+    background-color: rgba(144, 238, 144, 0.3);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    animation: none;
 }
 
 .student:hover img,
 .driver:hover img {
-    transform: scale(1.1); /* Scale up the image on hover */
+    transform: scale(1.1);
 }
 
 figcaption {
-    transition: color 0.3s ease; /* Add transition for smooth color change */
+    transition: color 0.3s ease;
 }
 
 .student:hover figcaption,
 .driver:hover figcaption {
-    color: red; /* Change text color on hover */
+    color: red;
 }
 
-.student {
-    background-color: rgba(220, 224, 183, 0.967);
-    text-align: center;
-    
-}
-
+.student,
 .driver {
     background-color: rgba(220, 224, 183, 0.967);
+    text-align: center;
 }
