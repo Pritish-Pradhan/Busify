@@ -84,7 +84,7 @@ a {
 
 img {
     max-width: 70%; /* Ensure image does not exceed container width */
-    height: auto; /* Maintain aspect ratio */
+    max-height: 70%; /* Maintain aspect ratio */
     transition: transform 0.3s ease;
 }
 
