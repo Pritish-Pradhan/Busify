@@ -1,13 +1,14 @@
 #mainContainer {
     text-align: center;
     background-image: url("./Resources/landing_logo.jpg");
-    background-size: cover;
+    background-size: cover; /* Make the background image cover the entire element */
     min-height: 100vh; /* Set minimum height to cover entire viewport */
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 0; /* Remove default body margin */
 }
+
 nav a{
     text-align:center;
 }
@@ -19,25 +20,43 @@ nav a{
       filter: blur(5px);
       background-color: #eee;
     }
-#container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap; /* Allow items to wrap to new line on smaller screens */
-    max-width: 800px; /* Limit maximum width of container */
-    margin: 0 auto; /* Center container horizontally */
-}
-
-.student,
-.driver {
-    margin: 20px; /* Adjust margin for spacing */
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
-    border-radius: 10px;
-    overflow: hidden;
-    animation: pulse 2s infinite alternate;
-    flex: 1 1 200px; /* Set flex-grow, flex-shrink, and flex-basis */
-    max-width: 300px; /* Limit maximum width of items */
-}
+    #container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap; /* Allow items to wrap to a new line on smaller screens */
+        max-width: 600px; /* Decrease maximum width of container */
+        margin: 0 auto; /* Center container horizontally */
+    }
+    
+    .student,
+    .driver {
+        margin: 30px; /* Adjust margin for spacing */
+        transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        border-radius: 50%; /* Make the containers circular */
+        overflow: hidden;
+        animation: pulse 2s infinite alternate;
+        flex: 1 1 200px; /* Set flex-grow, flex-shrink, and flex-basis */
+        width: 200px; /* Increase width */
+        height: 200px; /* Increase height */
+    }
+    
+    
+    /* Media Query for smaller screens */
+    @media (max-width: 768px) {
+        #container {
+            flex-direction: column; /* Change flex direction to vertical */
+        }
+    }
+    .navbar-dark .navbar-brand {
+        color: #ffc107;
+    }
+    
+    
+    
+    
+    
+    
 
 @keyframes pulse {
     0% {
