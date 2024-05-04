@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.min.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            background-image: url("Resources/landing_logo.jpg");
+            overflow: hidden;
+        }
+        .material-symbols-outlined {
+      color: #ffc107; /* Change the color to yellow */
+  }
+        #center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin-top: 4%;
+        }
+
+        .sides {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            padding: 20px;
+            width: 90%; /* Adjusted width for responsiveness */
+            max-width: 40%; /* Maximum width */
+            max-height: 80%;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            /* background-color: white; */
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .sides:hover {
+            transform: translateY(-5px);
+        }
+
+        .left-side, .right-side {
+            width: 48%; /* Adjusted width for left and right sides */
+            border-radius: 12px; /* Adjusted border radius */
+            margin-bottom: 20px; /* Added margin bottom for spacing */
+            height: 100%; /* Make both sides equal height */
+            /* overflow: hidden; Hide overflow content */
+        }
+
+        .left-side {
+            /* background-color: #f4f4f4; */
+            margin-right: 2%; /* Add small margin between left and right sides */
+            height: 100%; /* Increase height of the left side */
+            overflow-y: auto;
+        }
+
+        .right-side {
+            /* background-color: #f4f4f4; */
+            margin-left: 2%; /* Add small margin between left and right sides */
+            height: 90%; /* Increase height of the right side */
+        }
+
+        .info {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            width: 100%;
+            background-color: #ffeaa7;
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease-in-out;
+            position: relative;
+            max-height: 100%;
+        }
+
+        .info:hover {
+            transform: scale(1.02);
+        }
+
+        h1, h2 {
+            margin: 5px 0;
+            color: #2d3436;
+        }
+
+        button {
+            padding: 8px 16px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 4px;
+            background-color: #0984e3;
+            color: white;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        button:hover {
+            background-color: #74b9ff;
+        }
+
+        .additional-info {
+            display: none;
+            position: absolute;
+            top: calc(100% + 10px);
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #ffffff;
+            border-radius: 8px;
+            padding: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .info:hover .additional-info {
+            display: block;
+        }
+
+        .map {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 120%;
+            width: 100%;
+        }
+
+        /* Media Query for Tablets and Smaller Screens */
+        @media (max-width: 768px) {
+            .sides {
+                width: 80%; /* Adjusted width for smaller screens */
+            }
+        }
+
+        /* Media Query for Mobile Devices */
+        @media (max-width: 480px) {
+            .sides {
+                width: 90%; /* Adjusted width for mobile devices */
+            }
+        }
+
+        /*=============== GOOGLE FONTS ===============*/
+@import url("https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@400;500&display=swap");
+
+/*=============== VARIABLES CSS ===============*/
+:root {
+  --header-height: 3.5rem;
+
+  /*========== Colors ==========*/
+  /*Color mode HSL(hue, saturation, lightness)*/
+  --white-color: hsl(0, 0%, 100%);
+  --black-color: hsl(0, 0%, 0%);
+
+  /*========== Font and typography ==========*/
+  /*.5rem = 8px | 1rem = 16px ...*/
+  --body-font: "Montserrat Alternates", sans-serif;
+  --h1-font-size: 1.5rem;
+  --normal-font-size: .938rem;
+
+  /*========== Font weight ==========*/
+  --font-regular: 400;
+  --font-medium: 500;
+
+  /*========== z index ==========*/
+  --z-tooltip: 10;
+  --z-fixed: 100;
+}
+
+/*========== Responsive typography ==========*/
+@media screen and (min-width: 1150px) {
+  :root {
+    --normal-font-size: 1rem;
+  }
+}
+
+/*=============== BASE ===============*/
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  background-color: var(--white-color);
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+/*=============== REUSABLE CSS CLASSES ===============*/
+.container {
+  max-width: 1120px;
+  margin-inline: 1.5rem;
+}
+
+/*=============== HEADER & NAV ===============*/
+.header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-color: var(--black-color);
+  z-index: 101; /* Increase z-index value */
+}
+
+.nav {
+  position: relative;
+  height: var(--header-height);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav__logo {
+  color: var(--white-color);
+  font-weight: var(--font-medium);
+}
+
+.nav__close, 
+.nav__toggle {
+  display: flex;
+  color: var(--white-color);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* Navigation for mobile devices */
+@media screen and (max-width: 1150px) {
+  .nav__menu {
+    position: fixed;
+    left: -100%;
+    top: 0;
+    background-color: var(--black-color);
+    width: 100%;
+    height: 100%;
+    padding: 6rem 3.5rem 4.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: left .4s;
+  }
+
+  .nav__item {
+    transform: translateX(-150px);
+    visibility: hidden;
+    transition: transform .4s ease-out, visibility .4s;
+  }
+
+  .nav__item:nth-child(1) {
+    transition-delay: .1s;
+  }
+  .nav__item:nth-child(2) {
+    transition-delay: .2s;
+  }
+  .nav__item:nth-child(3) {
+    transition-delay: .3s;
+  }
+  .nav__item:nth-child(4) {
+    transition-delay: .4s;
+  }
+  .nav__item:nth-child(5) {
+    transition-delay: .5s;
+  }
+}
+
+.nav__list, 
+.nav__social {
+  display: flex;
+}
+
+.nav__list {
+  flex-direction: column;
+  row-gap: 3rem;
+}
+
+.nav__link {
+  position: relative;
+  color: var(--white-color);
+  font-size: var(--h1-font-size);
+  font-weight: var(--font-medium);
+  display: inline-flex;
+  align-items: center;
+  transition: opacity .4s;
+}
+
+.nav__link i {
+  font-size: 2rem;
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .4s, visibility .4s;
+}
+
+.nav__link span {
+  position: relative;
+  transition: margin .4s;
+}
+
+.nav__link span::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0;
+  height: 2px;
+  background-color: var(--white-color);
+  transition: width .4s ease-out;
+}
+
+/* Animation link on hover */
+.nav__link:hover span {
+  margin-left: 2.5rem;
+}
+
+.nav__link:hover i {
+  opacity: 1;
+  visibility: visible;
+}
+
+.nav__link:hover span::after {
+  width: 100%;
+}
+
+/* Sibling fade animation */
+.nav__list:has(.nav__link:hover) .nav__link:not(:hover) {
+  opacity: .4;
+}
+
+.nav__close {
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+}
+
+.nav__social {
+  column-gap: 1rem;
+}
+
+.nav__social-link {
+  color: var(--white-color);
+  font-size: 1.5rem;
+  transition: transform .4s;
+}
+
+.nav__social-link:hover {
+  transform: translateY(-.25rem);
+}
+
+/* Show menu */
+.show-menu {
+  left: 0;
+}
+
+/* Animation link when displaying menu */
+.show-menu .nav__item {
+  visibility: visible;
+  transform: translateX(0);
+}
+
+/*=============== BREAKPOINTS ===============*/
+/* For large devices */
+@media screen and (min-width: 1150px) {
+  .container {
+    margin-inline: auto;
+  }
+
+  .nav {
+    height: calc(var(--header-height) + 2rem);
+  }
+
+  .nav__toggle, 
+  .nav__close {
+    display: none;
+  }
+
+  .nav__link {
+    font-size: var(--normal-font-size);
+  }
+
+  .nav__link i {
+    font-size: 1.5rem;
+  }
+
+  .nav__list {
+    flex-direction: row;
+    column-gap: 3.5rem;
+  }
+
+  .nav__menu {
+    display: flex;
+    align-items: center;
+    column-gap: 3.5rem;
+  }
+}
+::-webkit-scrollbar {
+    width: 8px;
+    background-color: transparent;
+}
+
+/* Scrollbar thumb */
+::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.3); /* Adjust the alpha value (0.0 to 1.0) to control transparency */
+    border-radius: 8px;
+}
+
+/* Hover effect on scrollbar thumb */
+::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+/* Media Query for Tablets and Smaller Screens */
+@media (max-width: 768px) {
+    #center {
+        flex-direction: column; /* Change flex direction for phones */
+    }
+    .sides {
+        flex-direction: column; /* Change flex direction for phones */
+        width: 100%; /* Adjusted width for both sides */
+    }
+    .left-side {
+        order: 2;
+        height: 30%;
+        overflow-y: auto; /* Allow overflow in the left side */
+        overflow-x: hidden;
+    }
+    .left-side, .right-side {
+        width: 100%; /* Adjusted width for both sides */
+    }
+    /* Target only .info inside .left-side */
+    .left-side .info {
+        width: 100%; /* Adjusted width for info inside left side */
+    }
+}
+
+
+/* Media Query for Phones */
+@media (max-width: 480px) {
+    #center {
+        flex-direction: column; /* Change flex direction for phones */
+    }
+    .sides {
+        flex-direction: column; /* Change flex direction for phones */
+    }
+    .left-side, .right-side {
+        width: 100%; /* Adjusted width for both sides */
+    }
+}
+
+    </style>
+</head>
+<body>
+    <header data-bs-theme="dark" id = "home" class="header container-fluid">
+        <!-- <nav class="navbar navbar-dark bg-dark fixed-top " aria-label="First navbar example">
+          <div class="container-fluid">
+            <a href="./index.html" class="navbar-brand d-flex align-items-center">
+              <span class="material-symbols-outlined">
+                directions_bus
+              </span>
+              <strong class="text-warning">BUSIFY</strong>
+            </a>
+            <button class="navbar-toggler btn-outline-warning" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample01" aria-controls="navbarsExample01" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarsExample01">
+              <ul class="navbar-nav me-auto mb-2">
+                
+                
+                
+                <li class="nav-item cs">
+                  <a class="nav-link" aria-current="page" href="#home">Home</a>
+                </li>
+                <li class="nav-item cs">
+                  <a class="nav-link" href="#hanging-icons">Features</a>
+                </li>
+                <li class="nav-item cs">
+                  <a class="nav-link" href="#Fees">Fees</a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#location" data-bs-toggle="dropdown" aria-expanded="false">Location</a>
+                  <ul class="dropdown-menu bg-body-tertiary" style="background-color:#eee ;border: 0.01rem solid black;border-collapse: collapse;">
+                    <li ><a class="dropdown-item" href="./paymentsbbsr.html">Bhubaneswar</a></li>
+                      <li ><a class="dropdown-item" href="./payment.html">Cuttack</a></li>
+                      <li ><a class="dropdown-item" href="#">XYZ</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-item cs">
+                    <a class="nav-link" target="_self" href="./login1.html">Log in</a>
+                  </li>
+                </ul>  
+              </div>
+            </div>
+          </nav> -->
+    
+          <nav class="nav container">
+            <a href="./index.html" class="navbar-brand d-flex align-items-center">
+              <span class="material-symbols-outlined">
+                directions_bus
+              </span>
+              <strong class="text-warning">BUSIFY</strong>
+            </a>
+    
+            <div class="nav__menu" id="nav-menu">
+               <ul class="nav__list">
+                  <li class="nav__item">
+                     <a href="./index.html" class="nav__link">
+                        <i class="ri-arrow-right-up-line"></i>
+                        <span>Home</span>
+                     </a>
+                  </li>
+    
+                  <li class="nav__item">
+                    <a href="#hanging-icons" class="nav__link">
+                       <i class="ri-arrow-right-up-line"></i>
+                       <span>Features</span>
+                    </a>
+                 </li>
+    
+                  <li class="nav__item">
+                     <a href="#Fees" class="nav__link">
+                        <i class="ri-arrow-right-up-line"></i>
+                        <span>Fees</span>
+                     </a>
+                  </li>
+    
+                  <li class="nav__item">
+                     <a class="nav__link" target="_self" href="./login1.html">
+                        <i class="ri-arrow-right-up-line"></i>
+                        <span>Login</span>
+                     </a>
+                  </li>
+    
+                  <li class="nav__item">
+                     <a href="./studentmap.html" class="nav__link">
+                        <i class="ri-arrow-right-up-line"></i>
+                        <span>Bus Info</span>
+                     </a>
+                  </li>
+               </ul>
+    
+               <!-- Close button -->
+               <div class="nav__close" id="nav-close">
+                  <i class="ri-close-large-line"></i>
+               </div>
+    
+               <!-- <div class="nav__social">
+                  <a href="https://www.instagram.com/" target="_blank" class="nav__social-link">
+                     <i class="ri-instagram-line"></i>
+                  </a>
+    
+                  <a href="https://github.com/" target="_blank" class="nav__social-link">
+                     <i class="ri-github-line"></i>
+                  </a>
+    
+                  <a href="https://dribbble.com/" target="_blank" class="nav__social-link">
+                     <i class="ri-dribbble-line"></i>
+                  </a>
+    
+                  <a href="https://www.linkedin.com/" target="_blank" class="nav__social-link">
+                     <i class="ri-linkedin-box-line"></i>
+                  </a>
+               </div> -->
+            </div>
+    
+            <!-- Toggle button -->
+            <div class="nav__toggle" id="nav-toggle">
+               <i class="ri-menu-line"></i>
+            </div>
+         </nav>
+      </header>
+    
+<div id="center">
+    <div class="left-side sides">
+        <div class="info">
+            <h1>Route 1A</h1>
+            <h2>Driver: Asak</h2>
+            <button onclick="toggleInfo(this)">Get Info</button>
+        </div>
+        <div class="info">
+            <h1>Route 1A</h1>
+            <h2>Driver: Asak</h2>
+            <button onclick="toggleInfo(this)">Get Info</button>
+        </div>
+        <div class="info">
+            <h1>Route 1A</h1>
+            <h2>Driver: Asak</h2>
+            <button onclick="toggleInfo(this)">Get Info</button>
+        </div>
+        <div class="info">
+            <h1>Route 1A</h1>
+            <h2>Driver: Asak</h2>
+            <button>Get Info</button>
+        </div>
+        <!-- Repeat the above div for other routes -->
+    </div>
+    <div class="right-side sides">
+        <div class="map">
+            <!-- Add content for the right side if needed -->
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d119743.53788641382!2d85.73805135702608!3d20.300864868684776!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a1909d2d5170aa5%3A0xfc580e2b68b33fa8!2sBhubaneswar%2C%20Odisha!5e0!3m2!1sen!2sin!4v1714835635405!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </div>
+</div>
+
+<script>
+    // function toggleInfo(button) {
+    //     var info = button.parentElement;
+    //     var additionalInfo = info.querySelector('.additional-info');
+    //     additionalInfo.style.display = additionalInfo.style.display === 'block' ? 'none' : 'block';
+    // }
+    /*=============== SHOW MENU ===============*/
+const navMenu = document.getElementById('nav-menu'),
+      navToggle = document.getElementById('nav-toggle'),
+      navClose = document.getElementById('nav-close')
+
+/* Menu show */
+if(navToggle){
+   navToggle.addEventListener('click', () =>{
+      navMenu.classList.add('show-menu')
+   })
+}
+
+/* Menu hidden */
+if(navClose){
+   navClose.addEventListener('click', () =>{
+      navMenu.classList.remove('show-menu')
+   })
+}
+</script>
+</body>
+</html>
