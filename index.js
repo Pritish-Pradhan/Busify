@@ -1,4 +1,3 @@
-//function to blur the background on clicking navbar
 $("nav button").on("click",function(){
     if($("#mainContainer").hasClass("Blur")){
         $("#mainContainer").removeClass("Blur");
@@ -8,14 +7,21 @@ $("nav button").on("click",function(){
     }
 });
 
-//function for removing nav on clicking elsewhere
-$("#mainContainer").on("click",function(){
-    if($("#mainContainer").hasClass("Blur")){
-        $("nav button").click();
-    }
-});
+/*=============== SHOW MENU ===============*/
+const navMenu = document.getElementById('nav-menu'),
+      navToggle = document.getElementById('nav-toggle'),
+      navClose = document.getElementById('nav-close')
 
-//function to close nav on clicking a item in it
-$(".navbar .cs").on("click",function(){
-    $("nav button").click();
-});
+/* Menu show */
+if(navToggle){
+   navToggle.addEventListener('click', () =>{
+      navMenu.classList.add('show-menu')
+   })
+}
+
+/* Menu hidden */
+if(navClose){
+   navClose.addEventListener('click', () =>{
+      navMenu.classList.remove('show-menu')
+   })
+}
