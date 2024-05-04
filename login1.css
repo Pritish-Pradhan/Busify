@@ -1,3 +1,7 @@
+html, body {
+    overflow-x: hidden;
+}
+
 #mainContainer {
     text-align: center;
     background-image: url("./Resources/landing_logo.jpg");
