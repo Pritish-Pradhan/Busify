@@ -16,6 +16,6 @@ $("#mainContainer").on("click",function(){
 });
 
 //function to close nav on clicking a item in it
-$(".nav-item").on("click",function(){
+$(".nav-item .cs").on("click",function(){
     $("nav button").click();
 });
