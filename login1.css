@@ -328,7 +328,9 @@ nav a{
         color: #ffc107;
     }
     
-    
+    .material-symbols-outlined {
+      color: #ffc107; /* Change the color to yellow */
+  }
     
     
     
