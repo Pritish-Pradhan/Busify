@@ -60,12 +60,14 @@
             margin-right: 2%; /* Add small margin between left and right sides */
             height: 100%; /* Increase height of the left side */
             overflow-y: auto;
+            width: 100%;
         }
 
         .right-side {
             /* background-color: #f4f4f4; */
             margin-left: 2%; /* Add small margin between left and right sides */
             height: 90%; /* Increase height of the right side */
+            width: 100%;
         }
 
         .info {
@@ -427,41 +429,83 @@ a {
 }
 /* Media Query for Tablets and Smaller Screens */
 @media (max-width: 768px) {
+    /* Adjust header height for smaller screens */
+    :root {
+        --header-height: 3rem;
+    }
+
+    /* Center content vertically and change flex direction */
     #center {
-        flex-direction: column; /* Change flex direction for phones */
+        flex-direction: column;
+        align-items: center;
     }
+
+    /* Adjust width for both sides */
     .sides {
-        flex-direction: column; /* Change flex direction for phones */
-        width: 100%; /* Adjusted width for both sides */
+        width: 120%;
     }
+
+    /* Adjust height and overflow for left side */
     .left-side {
-        order: 2;
-        height: 30%;
-        overflow-y: auto; /* Allow overflow in the left side */
+        height: 50%;
+        overflow-y: auto;
         overflow-x: hidden;
+        order: 2;
+        width: calc(100% - 10px);
     }
-    .left-side, .right-side {
-        width: 100%; /* Adjusted width for both sides */
-    }
-    /* Target only .info inside .left-side */
+
+    /* Adjust width for info inside left side */
     .left-side .info {
-        width: 100%; /* Adjusted width for info inside left side */
+        width: 100%;
+    }
+
+    /* Adjust width for both sides */
+    .left-side,
+    .right-side {
+        width: 100%;
     }
 }
-
 
 /* Media Query for Phones */
 @media (max-width: 480px) {
+    /* Adjust header height for smaller screens */
+    :root {
+        --header-height: 2.5rem;
+    }
+
+    /* Center content vertically and change flex direction */
     #center {
-        flex-direction: column; /* Change flex direction for phones */
+        flex-direction: column;
+        align-items: center;
     }
+
+    /* Adjust width for both sides */
     .sides {
-        flex-direction: column; /* Change flex direction for phones */
+        width: 90%;
     }
-    .left-side, .right-side {
-        width: 100%; /* Adjusted width for both sides */
+
+    /* Adjust height and overflow for left side */
+    .left-side {
+        height: 40%;
+        overflow-y: auto;
+        overflow-x: hidden;
+        position: inherit;
+        order: 2;
+    }
+
+    /* Adjust width for info inside left side */
+    .left-side .info {
+        width: 100%;
+    }
+
+    /* Adjust width for both sides */
+    .left-side,
+    .right-side {
+        width: 100%;
     }
 }
+
+
 
     </style>
 </head>
@@ -619,29 +663,32 @@ a {
 </div>
 
 <script>
-    // function toggleInfo(button) {
-    //     var info = button.parentElement;
-    //     var additionalInfo = info.querySelector('.additional-info');
-    //     additionalInfo.style.display = additionalInfo.style.display === 'block' ? 'none' : 'block';
-    // }
-    /*=============== SHOW MENU ===============*/
-const navMenu = document.getElementById('nav-menu'),
-      navToggle = document.getElementById('nav-toggle'),
-      navClose = document.getElementById('nav-close')
-
-/* Menu show */
-if(navToggle){
-   navToggle.addEventListener('click', () =>{
-      navMenu.classList.add('show-menu')
-   })
+   // Function to toggle additional info
+function toggleInfo(button) {
+    var info = button.parentElement;
+    var additionalInfo = info.querySelector('.additional-info');
+    additionalInfo.style.display = additionalInfo.style.display === 'block' ? 'none' : 'block';
 }
 
-/* Menu hidden */
-if(navClose){
-   navClose.addEventListener('click', () =>{
-      navMenu.classList.remove('show-menu')
-   })
+// Function to show/hide menu
+const navMenu = document.getElementById('nav-menu');
+const navToggle = document.getElementById('nav-toggle');
+const navClose = document.getElementById('nav-close');
+
+// Show menu
+if (navToggle) {
+    navToggle.addEventListener('click', () => {
+        navMenu.classList.toggle('show-menu');
+    });
 }
+
+// Hide menu
+if (navClose) {
+    navClose.addEventListener('click', () => {
+        navMenu.classList.remove('show-menu');
+    });
+}
+
 </script>
 </body>
 </html>
